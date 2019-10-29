@@ -1,14 +1,12 @@
 package top.kikt.pdf.examples
 
-import com.itextpdf.text.*
-import com.itextpdf.text.pdf.BaseFont
+import com.itextpdf.text.Font
+import com.itextpdf.text.Paragraph
 import com.itextpdf.text.pdf.PdfPCell
 import com.itextpdf.text.pdf.PdfPTable
-import com.itextpdf.text.pdf.PdfWriter
-import org.slf4j.Logger
-import org.slf4j.LoggerFactory
 import top.kikt.pdf.utils.ExampleUtils
 
+// 表格相关的操作
 object Main003InsertTableExample {
 
     @Throws(Exception::class)

@@ -44,11 +44,15 @@ object ExampleUtils {
 
         val baseFont = CommonUtils.getBaseFont()
 
-        runner.invoke(document, writer, baseFont)
-
-        logger.info(outputPdfPath + " 有 " + writer.pageNumber + " 个页面")
-
-        document.close()
+        try {
+            runner.invoke(document, writer, baseFont)
+            logger.info(outputPdfPath + " 有 " + writer.pageNumber + " 个页面")
+            document.close()
+        } catch (e: Exception) {
+            logger.info("文档写入出错")
+            File(realOutputPath).deleteOnExit()
+            return
+        }
         writer.close()
         fileOutputStream.close()
 
@@ -57,7 +61,7 @@ object ExampleUtils {
         logger.info("执行时间 : $runtime 毫秒")
 
         // convert
-        usePdfBoxConvertPage(realOutputPath)
+//        usePdfBoxConvertPage(realOutputPath)
     }
 
     @Throws(IOException::class)
