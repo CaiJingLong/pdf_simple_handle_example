@@ -26,8 +26,10 @@ object ExampleUtils {
 
     @Throws(Exception::class)
     fun run(outputPdfPath: String, runner: (document: Document, writer: PdfWriter, baseFont: BaseFont) -> Unit) {
-        run(outputPdfPath, ExampleRunner { document, writer, baseFont ->
-            runner(document, writer, baseFont)
+        run(outputPdfPath, object : ExampleRunner {
+            override fun invoke(document: Document, writer: PdfWriter, baseFont: BaseFont) {
+                runner(document, writer, baseFont)
+            }
         })
     }
 

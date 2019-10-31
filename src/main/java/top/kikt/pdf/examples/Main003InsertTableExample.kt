@@ -12,7 +12,7 @@ object Main003InsertTableExample {
     @Throws(Exception::class)
     @JvmStatic
     fun main(args: Array<String>) {
-        ExampleUtils.run("example3.pdf") { document, writer, baseFont ->
+        ExampleUtils.run("example3.pdf") { document, _, baseFont ->
             document.newPage()
             val table = PdfPTable(5)
             val font = Font(baseFont, 12f, Font.NORMAL)
