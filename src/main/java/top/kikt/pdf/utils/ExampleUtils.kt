@@ -44,7 +44,7 @@ object ExampleUtils {
         val writer = PdfWriter.getInstance(document, fileOutputStream)
         document.open()
 
-        val baseFont = CommonUtils.getBaseFont()
+        val baseFont = CommonUtils.baseFont
 
         try {
             runner.invoke(document, writer, baseFont)

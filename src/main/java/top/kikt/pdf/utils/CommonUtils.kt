@@ -1,27 +1,25 @@
-package top.kikt.pdf.utils;
+package top.kikt.pdf.utils
 
-import com.itextpdf.text.DocumentException;
-import com.itextpdf.text.pdf.BaseFont;
+import com.itextpdf.text.DocumentException
+import com.itextpdf.text.pdf.BaseFont
 
-import java.io.IOException;
+import java.io.IOException
 
-public class CommonUtils {
+object CommonUtils {
 
-    private static final String fontPath = "STHeitiTC-Light-01.ttf";
-    private static BaseFont baseFont;
+    private const val fontPath = "STHeitiTC-Light-01.ttf"
+    lateinit var baseFont: BaseFont
+        private set
 
-    static {
+    init {
         try {
-            baseFont = BaseFont.createFont(fontPath, BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
-        } catch (DocumentException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
+            baseFont = BaseFont.createFont(fontPath, BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED)
+        } catch (e: DocumentException) {
+            e.printStackTrace()
+        } catch (e: IOException) {
+            e.printStackTrace()
         }
-    }
 
-    public static BaseFont getBaseFont() {
-        return baseFont;
     }
 
 }
