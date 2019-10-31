@@ -4,6 +4,8 @@ import com.itextpdf.text.pdf.PdfArray
 import com.itextpdf.text.pdf.PdfName
 import com.itextpdf.text.pdf.PdfReader
 import com.itextpdf.text.pdf.PdfStamper
+import top.kikt.pdf.utils.getFloat
+import top.kikt.pdf.utils.getMediaBox
 import java.io.File
 import java.util.*
 
@@ -18,7 +20,7 @@ object Main004SplitPageExample {
         val stamper = PdfStamper(reader, File("out/example4.pdf").outputStream())
 
         val pageN = reader.getPageN(1)
-        val mediaBoxDict = pageN.getAsArray(PdfName.MEDIABOX)
+        val mediaBoxDict = pageN.getMediaBox()
         val x = mediaBoxDict.getFloat(0) + 100
         val y = mediaBoxDict.getFloat(1) + 200
         val width = mediaBoxDict.getFloat(2) - 200
@@ -33,7 +35,5 @@ object Main004SplitPageExample {
 
         stamper.close()
     }
-
-    fun PdfArray.getFloat(index: Int) = getAsNumber(index).floatValue()
 
 }
