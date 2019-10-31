@@ -8,7 +8,7 @@ import com.itextpdf.text.pdf.PdfWriter
 import top.kikt.pdf.utils.getRect
 import java.io.FileOutputStream
 
-/// 将单数页和双数页合并为同一张图片
+/// 将单数页和双数页纵向合并为一页
 object Main006MergeMultiToOneExample {
 
     private const val src = "Profiling_your_Flutter_Apps.pdf"
